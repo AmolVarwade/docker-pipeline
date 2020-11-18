@@ -26,7 +26,8 @@ node {
 		*/
 	    //withDockerRegistry([ credentialsId: "amolv105", url: "https://index.docker.io/v1/" ]){
         docker.withRegistry('https://index.docker.io/v1/', 'docker-hub') {
-	    dockerImage.push()
+	    app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
             } 
                 echo "Trying to Push Docker Build to DockerHub"
     }
