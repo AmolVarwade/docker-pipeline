@@ -37,7 +37,7 @@ stage('Pull & Run image ') {
 		*/
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
 	sh "docker pull amolv105/webdemo:latest"
-	sh "docker run -it -p8000:8000 amolv105/webdemo"
+	sh "docker run -p8000:8000 amolv105/webdemo"
 	sh "curl http://127.0.0.1:8000/"
             } 
                 echo "Trying to Push Docker Build to DockerHub"
