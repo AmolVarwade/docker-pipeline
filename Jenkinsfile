@@ -10,7 +10,7 @@ node {
     stage('Build image') {
         /* This builds the actual image */
 
-        app = docker.build("amol/nodeapp")
+        app = docker.build("amol/web-app")
     }
 
     stage('Test image') {
@@ -25,9 +25,9 @@ node {
 			You would need to first register with DockerHub before you can push images to your account
 		*/
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-	echo "docker push amolv105/web-app2:build"
-	    app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+	sh "docker push amolv105/web-app:latest"
+	   // app.push("${env.BUILD_NUMBER}")
+            //app.push("latest")
             } 
                 echo "Trying to Push Docker Build to DockerHub"
     }
