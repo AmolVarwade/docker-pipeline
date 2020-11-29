@@ -36,7 +36,8 @@ stage('Pull & Run image ') {
 			You would need to first register with DockerHub before you can push images to your account
 		*/
 	sh "docker pull amolv105/webdemo:latest"
-	receiver_container.stop()
+	sh "docker stop $(docker ps -q)"
+	sh "docker rm $(docker ps -q)"
 	sh "docker run -d -p8000:8000 amolv105/webdemo"
 	
     }
