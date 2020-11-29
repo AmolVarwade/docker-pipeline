@@ -30,5 +30,5 @@
 stage('Execute Image ') {
 	sh "docker pull amolv105/webdemo:latest"
 	sh "docker run -d -p8000:8000 amolv105/webdemo"
-	
+	}
     }
