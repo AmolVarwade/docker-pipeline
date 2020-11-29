@@ -25,5 +25,9 @@ stage('Pull & Run image ') {
         /* You would need to first register with DockerHub before you can push images to your account */
 	sh "docker pull amolv105/webdemo:latest"
 	sh "docker run -d -p8000:8000 amolv105/webdemo"
+	app.inside{
+	curl "http://127.0.0.1:8000/"
+	}
     }
+	
 }
